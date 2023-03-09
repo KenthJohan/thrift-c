@@ -11,6 +11,7 @@
 
 void thrift_onerror(char const * text)
 {
+	ASSERT(text);
 	printf("[THRIFT_ERROR] %s\n", text);
 }
 
@@ -25,6 +26,7 @@ void thrift_field_print(int32_t id, thrift_type_t type, thrift_value_t value, in
 
 void thrift_parse(uint8_t const * data, int32_t l)
 {
+	ASSERT(data);
 	uint8_t const * current = data;
 	thrift_type_t type = THRIFT_STRUCT;
 	thrift_value_t value;
@@ -38,7 +40,6 @@ void thrift_parse(uint8_t const * data, int32_t l)
 	while(current)
 	{
 		printf("|%04i|",i);
-		//print_field1(id, type, value, cursor.sp);
 		current = thrift_cursor_next(&cursor, current, data+l, &type, &id, &value);
 		thrift_field_print(id, type, value, cursor.sp - ((type==THRIFT_STRUCT) || (type==THRIFT_LIST)));
 		i++;

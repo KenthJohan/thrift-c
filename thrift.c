@@ -58,20 +58,20 @@ char const * thrift_get_type_string(thrift_type_t type)
 {
 	switch(type)
 	{
-	case THRIFT_STOP:		  return "STOP";
+	case THRIFT_STOP:          return "STOP";
 	case THRIFT_BOOLEAN_TRUE:  return "BOOLEAN_TRUE";
 	case THRIFT_BOOLEAN_FALSE: return "BOOLEAN_FALSE";
-	case THRIFT_BYTE:		  return "BYTE";
-	case THRIFT_I16:		   return "I16";
-	case THRIFT_I32:		   return "I32";
-	case THRIFT_I64:		   return "I64";
-	case THRIFT_DOUBLE:		return "DOUBLE";
-	case THRIFT_BINARY:		return "BINARY";
-	case THRIFT_LIST:		  return "LIST";
-	case THRIFT_SET:		   return "SET";
-	case THRIFT_MAP:		   return "MAP";
-	case THRIFT_STRUCT:		return "STRUCT";
-	default:				   return "";
+	case THRIFT_BYTE:          return "BYTE";
+	case THRIFT_I16:           return "I16";
+	case THRIFT_I32:           return "I32";
+	case THRIFT_I64:           return "I64";
+	case THRIFT_DOUBLE:        return "DOUBLE";
+	case THRIFT_BINARY:         return "BINARY";
+	case THRIFT_LIST:          return "LIST";
+	case THRIFT_SET:           return "SET";
+	case THRIFT_MAP:           return "MAP";
+	case THRIFT_STRUCT:        return "STRUCT";
+	default:                   return "";
 	}
 }
 
@@ -80,17 +80,17 @@ int thrift_is_list_element_type(thrift_type_t type)
 {
 	switch (type)
 	{
-	case THRIFT_BYTE:	return 1;
-	case THRIFT_I16:	 return 1;
-	case THRIFT_I32:	 return 1;
-	case THRIFT_I64:	 return 1;
+	case THRIFT_BYTE:    return 1;
+	case THRIFT_I16:     return 1;
+	case THRIFT_I32:     return 1;
+	case THRIFT_I64:     return 1;
 	case THRIFT_DOUBLE:  return 1;
 	case THRIFT_BINARY:  return 1;
-	case THRIFT_LIST:	return 1;
-	case THRIFT_SET:	 return 1;
-	case THRIFT_MAP:	 return 1;
+	case THRIFT_LIST:    return 1;
+	case THRIFT_SET:     return 1;
+	case THRIFT_MAP:     return 1;
 	case THRIFT_STRUCT:  return 1;
-	default:			 return 0;
+	default:             return 0;
 	}
 }
 
