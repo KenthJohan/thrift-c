@@ -32,14 +32,14 @@
 #endif
 
 #define bswap_64(n) \
-      ( (((n) & 0xff00000000000000ull) >> 56) \
-      | (((n) & 0x00ff000000000000ull) >> 40) \
-      | (((n) & 0x0000ff0000000000ull) >> 24) \
-      | (((n) & 0x000000ff00000000ull) >> 8)  \
-      | (((n) & 0x00000000ff000000ull) << 8)  \
-      | (((n) & 0x0000000000ff0000ull) << 24) \
-      | (((n) & 0x000000000000ff00ull) << 40) \
-      | (((n) & 0x00000000000000ffull) << 56) )
+	( (((n) & 0xff00000000000000ull) >> 56) \
+	| (((n) & 0x00ff000000000000ull) >> 40) \
+	| (((n) & 0x0000ff0000000000ull) >> 24) \
+	| (((n) & 0x000000ff00000000ull) >> 8)  \
+	| (((n) & 0x00000000ff000000ull) << 8)  \
+	| (((n) & 0x0000000000ff0000ull) << 24) \
+	| (((n) & 0x000000000000ff00ull) << 40) \
+	| (((n) & 0x00000000000000ffull) << 56) )
 
 
 #define ZIGZAG_TO_I32(n) ((n) >> 1) ^ (-(int32_t)((n) & 1));
@@ -48,8 +48,8 @@
 
 
 thrift_api_t thrift_api = {
-    .malloc_ = NULL,
-    .onerror_ = NULL,
+	.malloc_ = NULL,
+	.onerror_ = NULL,
 };
 
 
@@ -58,20 +58,20 @@ char const * thrift_get_type_string(thrift_type_t type)
 {
 	switch(type)
 	{
-	case THRIFT_STOP:          return "STOP";
+	case THRIFT_STOP:		  return "STOP";
 	case THRIFT_BOOLEAN_TRUE:  return "BOOLEAN_TRUE";
 	case THRIFT_BOOLEAN_FALSE: return "BOOLEAN_FALSE";
-	case THRIFT_BYTE:          return "BYTE";
-	case THRIFT_I16:           return "I16";
-	case THRIFT_I32:           return "I32";
-	case THRIFT_I64:           return "I64";
-	case THRIFT_DOUBLE:        return "DOUBLE";
-	case THRIFT_BINARY:        return "BINARY";
-	case THRIFT_LIST:          return "LIST";
-	case THRIFT_SET:           return "SET";
-	case THRIFT_MAP:           return "MAP";
-	case THRIFT_STRUCT:        return "STRUCT";
-	default:                   return "";
+	case THRIFT_BYTE:		  return "BYTE";
+	case THRIFT_I16:		   return "I16";
+	case THRIFT_I32:		   return "I32";
+	case THRIFT_I64:		   return "I64";
+	case THRIFT_DOUBLE:		return "DOUBLE";
+	case THRIFT_BINARY:		return "BINARY";
+	case THRIFT_LIST:		  return "LIST";
+	case THRIFT_SET:		   return "SET";
+	case THRIFT_MAP:		   return "MAP";
+	case THRIFT_STRUCT:		return "STRUCT";
+	default:				   return "";
 	}
 }
 
@@ -80,17 +80,17 @@ int thrift_is_list_element_type(thrift_type_t type)
 {
 	switch (type)
 	{
-	case THRIFT_BYTE:    return 1;
-	case THRIFT_I16:     return 1;
-	case THRIFT_I32:     return 1;
-	case THRIFT_I64:     return 1;
+	case THRIFT_BYTE:	return 1;
+	case THRIFT_I16:	 return 1;
+	case THRIFT_I32:	 return 1;
+	case THRIFT_I64:	 return 1;
 	case THRIFT_DOUBLE:  return 1;
 	case THRIFT_BINARY:  return 1;
-	case THRIFT_LIST:    return 1;
-	case THRIFT_SET:     return 1;
-	case THRIFT_MAP:     return 1;
+	case THRIFT_LIST:	return 1;
+	case THRIFT_SET:	 return 1;
+	case THRIFT_MAP:	 return 1;
 	case THRIFT_STRUCT:  return 1;
-	default:             return 0;
+	default:			 return 0;
 	}
 }
 
@@ -511,7 +511,7 @@ uint8_t const * thrift_cursor_next_value(thrift_cursor_t * cursor, uint8_t const
 
 uint8_t const * thrift_cursor_next(thrift_cursor_t * cursor, uint8_t const * data, uint8_t const * data_end, thrift_type_t * type, int64_t * id, thrift_value_t * value)
 {
-    data = thrift_cursor_next_type(cursor, data, data_end, type, id);
-    data = thrift_cursor_next_value(cursor, data, data_end, (*type), value);
+	data = thrift_cursor_next_type(cursor, data, data_end, type, id);
+	data = thrift_cursor_next_value(cursor, data, data_end, (*type), value);
 	return data;
 }

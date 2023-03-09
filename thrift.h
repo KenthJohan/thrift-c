@@ -6,20 +6,20 @@
 // https://github.com/apache/thrift/blob/0bc818f363a50282910fa19ae605689954239fcb/lib/cpp/src/thrift/protocol/TCompactProtocol.tcc#L51
 typedef enum
 {
-	THRIFT_STOP          = 0x00, // End of struct
+	THRIFT_STOP		  = 0x00, // End of struct
 	THRIFT_BOOLEAN_TRUE  = 0x01, // Field type and value is true
 	THRIFT_BOOLEAN_FALSE = 0x02, // Field type and value is false
-	THRIFT_BYTE          = 0x03, // Field type
-	THRIFT_I16           = 0x04, // Field type
-	THRIFT_I32           = 0x05, // Field type
-	THRIFT_I64           = 0x06, // Field type
-	THRIFT_DOUBLE        = 0x07, // Field type
-	THRIFT_BINARY        = 0x08, // Field type. This type is also used for string.
-	THRIFT_LIST          = 0x09, // Field type
-	THRIFT_SET           = 0x0A, // Field type
-	THRIFT_MAP           = 0x0B, // Field type
-	THRIFT_STRUCT        = 0x0C, // Field type, start of struct
-	THRIFT_UUID          = 0x0D, // Field type
+	THRIFT_BYTE		  = 0x03, // Field type
+	THRIFT_I16		   = 0x04, // Field type
+	THRIFT_I32		   = 0x05, // Field type
+	THRIFT_I64		   = 0x06, // Field type
+	THRIFT_DOUBLE		= 0x07, // Field type
+	THRIFT_BINARY		= 0x08, // Field type. This type is also used for string.
+	THRIFT_LIST		  = 0x09, // Field type
+	THRIFT_SET		   = 0x0A, // Field type
+	THRIFT_MAP		   = 0x0B, // Field type
+	THRIFT_STRUCT		= 0x0C, // Field type, start of struct
+	THRIFT_UUID		  = 0x0D, // Field type
 } thrift_type_t;
 
 // Generic thrift value:
@@ -51,9 +51,9 @@ typedef struct
 	int32_t id;
 	thrift_type_t type;
 	// TODO: These are only used when (type == THRIFT_LIST) which seems wasteful:
-	//       Is there a way to reduce stack bloat?
+	//	   Is there a way to reduce stack bloat?
 	thrift_type_t list_type;
-	int32_t       list_size;
+	int32_t	   list_size;
 } thrift_stack_t;
 
 // Iterable thrift parse reader
@@ -71,9 +71,9 @@ typedef void* (*thrift_api_malloc_t)(size_t size);
 typedef void (*thrift_api_on_error_t)(char const *);
 typedef struct {
 	// Allocator callback:
-    thrift_api_malloc_t malloc_;
+	thrift_api_malloc_t malloc_;
 	// Error callback:
-    thrift_api_on_error_t onerror_;
+	thrift_api_on_error_t onerror_;
 } thrift_api_t;
 extern thrift_api_t thrift_api;
 
