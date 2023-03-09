@@ -21,7 +21,7 @@ cursor.stack_size = 64;
 thrift_cursor_init(&cursor);
 while(current)
 {
-	current = thrift_cursor_next(&cursor, current, data+l, &type, &id, &value);
+	current = thrift_cursor_next(&cursor, current, data + data_length, &type, &id, &value);
 }
 ```
 
