@@ -35,7 +35,8 @@ gcc demo_test1.c thrift.c
 This is just a minor test that parses a header of Apache Parquet file.
 <details>
 <summary>demo_test1.c output</summary>
-  
+
+```
 |N   |sp|id|type  |value                |
 |----|--|--|------|---------------------|
 |0000|00|01|I32   |1                                |
@@ -443,6 +444,7 @@ This is just a minor test that parses a header of Apache Parquet file.
 |0402|00|03|STOP  |}                                |
 |0403|00|06|BINARY|parquet-mr version 1.8.1 (build  |
 |0404|00|06|STOP  |}                                |
+```
 </details>
 
 <hr>
