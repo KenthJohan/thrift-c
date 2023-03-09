@@ -1,10 +1,13 @@
 # Thrift compact protocol parser
 
+
 * Stack based parser
 * No recursion
 * Maximum depth configurable
 * No dependecies
 * Not fully implemented. Missing SET and MAP.
+
+<hr>
 
 ## Usage
 ```c
@@ -21,6 +24,9 @@ while(current)
 	current = thrift_cursor_next(&cursor, current, data+l, &type, &id, &value);
 }
 ```
+
+<hr>
+
 
 ### Demo
 ```bash
@@ -438,3 +444,13 @@ This is just a minor test that parses a header of Apache Parquet file.
 |0403|00|06|BINARY|parquet-mr version 1.8.1 (build  |
 |0404|00|06|STOP  |}                                |
 </details>
+
+<hr>
+
+### Official implementaion
+Official implementaion can be found in https://github.com/apache/thrift<br>
+
+#### Specifcation
+* https://erikvanoosten.github.io/thrift-missing-specification/#_thrift_compact_protocol_encoding<br>
+* https://github.com/apache/thrift/blob/master/doc/specs/thrift-compact-protocol.md<br>
+
