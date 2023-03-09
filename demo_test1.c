@@ -14,31 +14,13 @@ void thrift_onerror(char const * text)
     printf("[THRIFT_ERROR] %s\n", text);
 }
 
-void thrift_field_print(int32_t id, thrift_type_t type, thrift_value_t value, int32_t sp)
+void thrift_field_print(int32_t id, thrift_type_t type, thrift_value_t value, int32_t indent)
 {
 	char buf[VALUE_STR_LEN];
 	memset(buf, ' ', VALUE_STR_LEN);
-	thrift_get_field_str(type, value, buf+sp, VALUE_STR_LEN);
-    printf("%02i|%02i|%-6s|", sp, id, thrift_get_type_string(type));
-	switch (type)
-	{
-	default:break;
-	}
-	switch (type)
-	{
-	case THRIFT_STRUCT:
-		printf("%-*s |\n", VALUE_STR_LEN, buf);
-		break;
-	case THRIFT_LIST:
-		printf("%-*s |\n", VALUE_STR_LEN, buf);
-		break;
-	case THRIFT_STOP:
-		printf("%-*s |\n", VALUE_STR_LEN, buf);
-		break;
-	default:
-		printf("%-*s |\n", VALUE_STR_LEN, buf);
-		break;
-	}
+	thrift_get_field_str(type, value, buf+indent, VALUE_STR_LEN-indent);
+    printf("%02i|%02i|%-6s|", indent, id, thrift_get_type_string(type));
+	printf("%-*s |\n", VALUE_STR_LEN, buf);
 }
 
 void thrift_parse(uint8_t const * data, int32_t l)
