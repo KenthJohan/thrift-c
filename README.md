@@ -6,6 +6,22 @@
 * No dependecies
 * Not fully implemented. Missing SET and MAP.
 
+## Usage
+```c
+thrift_api.malloc_ = malloc;
+uint8_t const * current = data; // Pointer to thrift compact binary data
+thrift_type_t type;
+thrift_value_t value;
+int64_t id;
+thrift_cursor_t cursor = {0};
+cursor.stack_size = 64;
+thrift_cursor_init(&cursor);
+while(current)
+{
+	current = thrift_cursor_next(&cursor, current, data+l, &type, &id, &value);
+}
+```
+
 ### Demo
 ```bash
 gcc demo_test1.c thrift.c
